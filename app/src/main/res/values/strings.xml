@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">FoodDeliveryApp0284</string>
+
+    <!-- Other strings like titles... -->
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
+    <string name="title_delivery">Delivery</string>
     <string name="title_profile">Profile</string>
-    <string name="title_delivery">Delivery</string> <!-- Add this line -->
+
+    <!-- This is the line your layout is looking for -->
+    <string name="add_button_text">Add</string>
+
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,389 +7,287 @@
     android:background="#FFFFF0"
     tools:context=".fragment.MenuFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Header Title -->
+    <TextView
+        android:id="@+id/title_menu"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Snacks Shack - Menu"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Restaurant Name -->
-        <TextView
-            android:id="@+id/restaurant_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="Snacks Shack Menu"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            android:textStyle="bold" />
+    <!-- ScrollView for the menu -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/title_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Food Item 1: French Fries -->
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:paddingHorizontal="8dp">
 
+            <!-- Item 1: Sev Puri -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image1"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/Sevpuri"
                     android:contentDescription="Sev Puri"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/Sevpuri" /> <!-- Add fries.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name1"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Sev Puri"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image1"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹40"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name1"
-                    app:layout_constraintTop_toBottomOf="@id/food_name1" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button1"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sev Puri"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹40"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_sevpuri"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
+            <View style="@style/Divider.Horizontal" />
 
-        <!-- Food Item 2: Samosa -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Item 2: Punjabi Samosa -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image2"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="Samosa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/samosa" /> <!-- Add samosa.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name2"
+                    android:src="@drawable/samosa"
+                    android:contentDescription="Punjabi Samosa"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Punjabi Samosa (2 Pcs)"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image2"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹80"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name2"
-                    app:layout_constraintTop_toBottomOf="@id/food_name2" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button2"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Punjabi Samosa (2 Pcs)"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹80"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_samosa"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
+            <View style="@style/Divider.Horizontal" />
 
-        <!-- Food Item 3: Veg Sandwich -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Item 3: Kachori -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image3"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/kachori"
                     android:contentDescription="Kachori"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/kachori" /> <!-- Add sandwich.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name3"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Kachori"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image3"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹50"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name3"
-                    app:layout_constraintTop_toBottomOf="@id/food_name3" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button3"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kachori"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹50"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_kachori"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
+            <View style="@style/Divider.Horizontal" />
 
-        <!-- Food Item 4: Nachos -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Item 4: Masala Puri -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image4"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/Masalapuri"
                     android:contentDescription="Masala Puri"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/Masalapuri" /> <!-- Add nachos.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name4"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Masala Puri"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image4"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹500"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name4"
-                    app:layout_constraintTop_toBottomOf="@id/food_name4" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button4"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masala Puri"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹50"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_masalapuri"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
+            <View style="@style/Divider.Horizontal" />
 
-        <!-- Food Item 5: Momos -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Item 5: Pani Puri -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image5"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="Momos"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/Panipuri" /> <!-- Add momos.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name5"
+                    android:src="@drawable/Panipuri"
+                    android:contentDescription="Pani Puri"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Pani puri"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image5"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹30"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name5"
-                    app:layout_constraintTop_toBottomOf="@id/food_name5" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button5"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pani Puri"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹30"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_panipuri"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
+            <View style="@style/Divider.Horizontal" />
 
-        <!-- Food Item 6: Spring Roll -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Item 6: Bhel Puri -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="12dp">
                 <ImageView
-                    android:id="@+id/food_image6"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="Bhelpuri"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/Bhelpuri" /> <!-- Add spring_roll.png to drawables -->
-
-                <TextView
-                    android:id="@+id/food_name6"
+                    android:src="@drawable/Bhelpuri"
+                    android:contentDescription="Bhel Puri"
+                    android:layout_marginStart="8dp"/>
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Bhelpuri"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/food_image6"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/food_price6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="₹40"
-                    android:textAppearance="?attr/textAppearanceBody1"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@id/food_name6"
-                    app:layout_constraintTop_toBottomOf="@id/food_name6" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_to_cart_button6"
-                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bhel Puri"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹40"
+                        android:textColor="?attr/colorPrimary"/>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/button_add_bhelpuri"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="Add"
-                    app:icon="@drawable/cart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    android:text="Add"/>
+            </LinearLayout>
 
-    </LinearLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

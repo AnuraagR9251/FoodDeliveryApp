@@ -1,60 +1,94 @@
 package com.example.fooddeliveryapp0284;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-// Make sure to import the new fragment
-import com.example.fooddeliveryapp0284.fragments.CartFragment;
-import com.example.fooddeliveryapp0284.fragments.DeliveryFragment;
-import com.example.fooddeliveryapp0284.fragments.HomeFragment;
-import com.example.fooddeliveryapp0284.fragments.ProfileFragment;
+// Import your fragments
+import com.example.fooddeliveryapp0284.fragment.CartFragment;
+import com.example.fooddeliveryapp0284.fragment.DeliveryFragment;
 
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
 
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        ImageView i1 = findViewById(R.id.image_fast_food);
+        ImageView i2 = findViewById(R.id.image_south_indian);
+        ImageView i3 = findViewById(R.id.image_sea_food);
+        ImageView i4 = findViewById(R.id.image_chats);
+        Button b1 = findViewById(R.id.button_cart);
+        Button b2 = findViewById(R.id.button_delivery);
 
-        NavigationBarView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnItemSelectedListener(navListener);
+        i1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Hotel1.class);
+                startActivity(i);
+            }
+        });
+        i2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Hotel2.class);
+                startActivity(i);
+            }
+        });
+        i3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Hotel3.class);
+                startActivity(i);
+            }
+        });
+        i4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Hotel4.class);
+                startActivity(i);
+            }
+        });
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,CartFragment.class);
+                startActivity(i);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,DeliveryFragment.class);
+                startActivity(i);
+            }
+        });
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
-            bottomNav.setSelectedItemId(R.id.navigation_home);
-        }
     }
-
-    private final NavigationBarView.OnItemSelectedListener navListener =
-            new NavigationBarView.OnItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
-                    int itemId = item.getItemId();
-
-                    if (itemId == R.id.navigation_home) {
-                        selectedFragment = new HomeFragment();
-                    } else if (itemId == R.id.navigation_cart) {
-                        selectedFragment = new CartFragment();
-                    } else if (itemId == R.id.navigation_delivery) { // Add this case
-                        selectedFragment = new DeliveryFragment();
-                    } else if (itemId == R.id.navigation_profile) {
-                        selectedFragment = new ProfileFragment();
-                    }
-
-                    if (selectedFragment != null) {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                                selectedFragment).commit();
-                        return true;
-                    }
-                    return false;
-                }
-            };
 }
+
+
+

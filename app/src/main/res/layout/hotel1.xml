@@ -52,7 +52,7 @@
                     android:layout_marginStart="8dp"
                     android:contentDescription="Margherita Pizza"
                     android:scaleType="centerCrop"
-                    android:src="@draw" />
+                    android:src="@drawable/pizza" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -213,7 +213,7 @@
                     android:layout_marginStart="8dp"
                     android:contentDescription="Ravioli"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/r" />
+                    android:src="@drawable/ravioli" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -267,7 +267,7 @@
                     android:layout_marginStart="8dp"
                     android:contentDescription="Classic Burger"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Burger" />
+                    android:src="@drawable/burger" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -321,7 +321,7 @@
                     android:layout_marginStart="8dp"
                     android:contentDescription="Lasagna"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Lasagna" />
+                    android:src="@drawable/lasagna" />
 
                 <LinearLayout
                     android:layout_width="0dp"

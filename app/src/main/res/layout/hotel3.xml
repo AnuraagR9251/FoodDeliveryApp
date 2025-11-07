@@ -47,7 +47,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Salmon"
+                    android:src="@drawable/salmon"
                     android:contentDescription="Grilled Salmon"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -89,7 +89,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Lobster"
+                    android:src="@drawable/lobster"
                     android:contentDescription="Lobster Thermidor"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -131,7 +131,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/FishFry"
+                    android:src="@drawable/fishfry"
                     android:contentDescription="Fish Fry"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -173,7 +173,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Crab"
+                    android:src="@drawable/crab"
                     android:contentDescription="Crab Masala"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -215,7 +215,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Prawsfry"
+                    android:src="@drawable/prawsfry"
                     android:contentDescription="Prawns Fry"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout

@@ -173,7 +173,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Masalapuri"
+                    android:src="@drawable/masalapuri"
                     android:contentDescription="Masala Puri"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -215,7 +215,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Panipuri"
+                    android:src="@drawable/panipuri"
                     android:contentDescription="Pani Puri"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout

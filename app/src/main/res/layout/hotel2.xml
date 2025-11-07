@@ -44,7 +44,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Dosa"
+                    android:src="@drawable/dosa"
                     android:contentDescription="Masala Dosa"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -86,7 +86,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Idli"
+                    android:src="@drawable/idli"
                     android:contentDescription="Idli Sambar"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -170,7 +170,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Paddu"
+                    android:src="@drawable/paddu"
                     android:contentDescription="Paddu"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -212,7 +212,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Bisibelebath"
+                    android:src="@drawable/bisibelebath"
                     android:contentDescription="Bisibelebath"
                     android:layout_marginStart="8dp"/>
                 <LinearLayout
@@ -263,7 +263,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Paddu"
+                        android:text="Onion Upma"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         android:textStyle="bold"/>
                     <TextView

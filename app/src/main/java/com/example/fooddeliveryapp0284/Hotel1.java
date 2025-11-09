@@ -30,7 +30,7 @@ public class Hotel1 extends AppCompatActivity {
        Button b5 = findViewById(R.id.button_add_ravioli);
        Button b6 = findViewById(R.id.button_add_lasagna);
        Button b7 = findViewById(R.id.back);
-       Button b8 = findViewById(R.id.next);
+       Button b8 = findViewById(R.id.button_add_ravioli);
 
 
         items = new ArrayList<>();

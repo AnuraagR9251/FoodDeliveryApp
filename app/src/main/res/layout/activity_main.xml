@@ -14,7 +14,7 @@
         android:layout_height="180dp"
         android:contentDescription="Promotional food banner"
         android:scaleType="centerCrop"
-        android:src="@drawable/Hero"
+        android:src="@drawable/hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Pizza"
+                        android:src="@drawable/pizza"
                         android:contentDescription="Trattoria Roma Restaurant" />
 
                     <View
@@ -113,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Dosa"
+                        android:src="@drawable/dosa"
                         android:contentDescription="Dakshin Delights Restaurant" />
 
                     <View
@@ -162,7 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/Lobster"
+                        android:src="@drawable/lobster"
                         android:contentDescription="Ocean's Catch Restaurant" />
 
                     <View

@@ -36,7 +36,7 @@
                 android:layout_height="80dp"
                 android:contentDescription="Margherita Pizza"
                 android:scaleType="centerCrop"
-                android:src="@drawable/Pizza" />
+                android:src="@drawable/pizza" />
 
             <!-- Item Name and Price -->
             <LinearLayout

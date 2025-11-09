@@ -1,146 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cart_items_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="16dp">
+
+    <!-- Cart items will be added dynamically -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:paddingTop="16dp">
 
-        <!-- Header Title -->
         <TextView
-            android:id="@+id/cart_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:text="My Cart"
-            android:textSize="24sp"
+            android:text="Total Bill:"
+            android:layout_weight="1"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
-        <!-- ==== EXAMPLE CART ITEM 1 ==== -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <!-- Item Image -->
-            <ImageView
-                android:id="@+id/cart_item_image_1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:contentDescription="Margherita Pizza"
-                android:scaleType="centerCrop"
-                android:src="@drawable/pizza" />
-
-            <!-- Item Name and Price -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/cart_item_name_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Margherita Pizza"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/cart_item_price_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹450"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <!-- Quantity Controls using ImageView -->
-
-
-            <ImageView
-                android:id="@+id/minus_button_1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="Decrease quantity"
-                android:focusable="true"
-                android:src="@drawable/remove"
-                app:tint="?attr/colorOnSurfaceVariant" />
-
-            <TextView
-                android:id="@+id/quantity_text_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:text="1"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/add_button_1"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:contentDescription="Increase quantity"
-                android:focusable="true"
-                android:src="@drawable/add"
-                app:tint="?attr/colorPrimary" />
-
-        </LinearLayout>
-
-        <!-- Divider Line -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"
-            android:background="#CCCCCC" />
-
-        <!-- Total Bill Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/total_bill_value"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Total Bill:"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/total_bill_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="₹450"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <!-- Checkout Button -->
-        <Button
-            android:id="@+id/checkout_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:padding="16dp"
-            android:text="Proceed to Checkout"
-            android:textSize="18sp" />
-
+            android:text="₹0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-</ScrollView>
+    <Button
+        android:id="@+id/checkout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proceed to Checkout"
+        android:layout_marginTop="24dp"
+        android:padding="16dp"
+        android:textSize="18sp" />
+</LinearLayout>

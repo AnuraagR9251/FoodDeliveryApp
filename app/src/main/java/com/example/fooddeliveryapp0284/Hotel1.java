@@ -1,53 +1,65 @@
 package com.example.fooddeliveryapp0284;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
 
 import java.util.ArrayList;
 
 public class Hotel1 extends AppCompatActivity {
-    TextView t1;
-    ListView l1;
+    TextView selectedItemsText;
     ArrayList<String> items;
-    ArrayAdapter<String> adapter;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.hotel1);
+        setContentView(R.layout.hotel1); // Your XML filename (adjust if needed)
 
-       Button b1 = findViewById(R.id.button_add_pizza);
-       Button b2 = findViewById(R.id.button_add_burger);
-       Button b3 = findViewById(R.id.button_add_spaghetti);
-       Button b4 = findViewById(R.id.button_add_bruschetta);
-       Button b5 = findViewById(R.id.button_add_ravioli);
-       Button b6 = findViewById(R.id.button_add_lasagna);
-       Button b7 = findViewById(R.id.back);
-       Button b8 = findViewById(R.id.button_add_ravioli);
-
-
+        selectedItemsText = findViewById(R.id.selected_items_text);
         items = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-        l1.setAdapter(adapter);
+        updateItemsDisplay();
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        Button bPizza = findViewById(R.id.button_add_pizza);
+        Button bBurger = findViewById(R.id.button_add_burger);
+        Button bSpaghetti = findViewById(R.id.button_add_spaghetti);
+        Button bBruschetta = findViewById(R.id.button_add_bruschetta);
+        Button bRavioli = findViewById(R.id.button_add_ravioli);
+        Button bLasagna = findViewById(R.id.button_add_lasagna);
+        Button bBack = findViewById(R.id.back);
+        Button bNext = findViewById(R.id.next);
+
+        bPizza.setOnClickListener(v -> addItem("Margherita Pizza"));
+        bBurger.setOnClickListener(v -> addItem("Classic Burger"));
+        bSpaghetti.setOnClickListener(v -> addItem("Spaghetti Carbonara"));
+        bBruschetta.setOnClickListener(v -> addItem("Bruschetta"));
+        bRavioli.setOnClickListener(v -> addItem("Ravioli"));
+        bLasagna.setOnClickListener(v -> addItem("Lasagna"));
+
+        bBack.setOnClickListener(v -> finish());
+
+        bNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addItem("Pizza");
+                Intent i = new Intent(Hotel1.this, Cart.class);
+                i.putStringArrayListExtra("selectedItems", items);
+                startActivity(i);
             }
         });
     }
-
     private void addItem(String item) {
         items.add(item);
-        adapter.notifyDataSetChanged();
+        updateItemsDisplay();
+    }
+
+    private void updateItemsDisplay() {
+        String itemsString = String.join(", ", items);
+        selectedItemsText.setText("Selected Items: " + itemsString);
     }
 }
-

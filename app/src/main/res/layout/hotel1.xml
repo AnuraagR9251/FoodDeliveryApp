@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment.MenuFragment">
 
-
     <TextView
         android:id="@+id/title_menu"
         android:layout_width="wrap_content"
@@ -19,6 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- New TextView to display selected items -->
+    <TextView
+        android:id="@+id/selected_items_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Selected Items:"
+        android:textAppearance="?attr/textAppearanceBody1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_menu" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -28,8 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_menu">
-
+        app:layout_constraintTop_toBottomOf="@id/selected_items_text">
 
         <LinearLayout
             android:id="@+id/menu_item_list"
@@ -38,7 +48,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="8dp">
 
-
+            <!-- Menu item: Margherita Pizza -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,9 +100,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="?android:attr/divider" />
+                android:background="?attr/colorOutlineVariant" />
 
-
+            <!-- Menu item: Spaghetti Carbonara -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,8 +154,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="?android:attr/divider" />
+                android:background="?attr/colorOutlineVariant" />
 
+            <!-- Menu item: Bruschetta -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,9 +208,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="?android:attr/divider" />
+                android:background="?attr/colorOutlineVariant" />
 
-
+            <!-- Menu item: Ravioli -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -251,9 +262,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="?android:attr/divider" />
+                android:background="?attr/colorOutlineVariant" />
 
-
+            <!-- Menu item: Classic Burger -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -305,9 +316,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="8dp"
-                android:background="?android:attr/divider" />
+                android:background="?attr/colorOutlineVariant" />
 
-
+            <!-- Menu item: Lasagna -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -354,7 +365,6 @@
                     android:layout_marginEnd="8dp"
                     android:text="Add" />
             </LinearLayout>
-
 
         </LinearLayout>
     </ScrollView>

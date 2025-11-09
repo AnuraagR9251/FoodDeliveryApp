@@ -10,5 +10,10 @@
     <!-- This is the line your layout is looking for -->
     <string name="add_button_text">Add</string>
         <string name="delivery_person_avatar_description">Image of the delivery person</string>
+    <string name="pizza">Pizza</string>
+    <string name="burger">Burger</string>
+    <string name="spaghetti">Spaghetti</string>
 
+
+    <!-- <string name="app_name">Your App</string> -->
 </resources>

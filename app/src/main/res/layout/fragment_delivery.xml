@@ -1,201 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.DeliveryFragment">
+    android:layout_height="match_parent">
 
-    <!-- 1. MapView simulation -->
     <ImageView
-        android:id="@+id/map_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="Map showing delivery route"
-        android:scaleType="centerCrop"
-        android:src="@drawable/map_background" />
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="427dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/map_background" />
 
-    <!-- 2. Bottom Sheet for Delivery Details (Material 2 compatible) -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/delivery_details_sheet"
-        style="?attr/bottomSheetStyle"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="320dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Large.Corner">
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="15dp"
+        android:text="Your food is preparing"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Arriving in"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Simple Drag Handle for Material 2 -->
-            <View
-                android:id="@+id/drag_handle"
-                android:layout_width="40dp"
-                android:layout_height="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/drag_handle_shape"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="47dp"
+        android:text=" 20-30 mins"
+        android:textColor="#9C27B0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-            <!-- ETA -->
-            <TextView
-                android:id="@+id/eta_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Arriving in"
-                android:textAppearance="?attr/textAppearanceTitleMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/drag_handle" />
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="28dp"
+        android:text="Mr Ravi Kumar"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-            <TextView
-                android:id="@+id/eta_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="15-20 min"
-                android:textAppearance="?attr/textAppearanceHeadlineMedium"
-                android:textColor="?attr/colorPrimary"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eta_label" />
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Name:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <!-- Order Status Timeline -->
-            <LinearLayout
-                android:id="@+id/order_status_timeline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/eta_time">
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:srcCompat="@drawable/delivery" />
 
-                <!-- Status 1: Confirmed (Active) -->
-                <include
-                    layout="@layout/item_delivery_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:text="UP32-AB-1234"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView2" />
 
-                <!-- Status 2: Preparing (Active) -->
-                <include
-                    layout="@layout/item_delivery_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="91dp"
+        android:text="Delivery Person Details"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-                <!-- Status 3: On the way (Active) -->
-                <include
-                    layout="@layout/item_delivery_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="39dp"
+        android:text="Call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-                <!-- Status 4: Delivered (Inactive) -->
-                <include
-                    layout="@layout/item_delivery_status"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/status_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:text="Your food is being prepared"
-                android:textAppearance="?attr/textAppearanceBodyLarge"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/order_status_timeline" />
-
-            <!-- Divider -->
-            <View
-                android:id="@+id/divider"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginHorizontal="16dp"
-                android:background="?android:attr/divider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/status_text" />
-
-            <!-- ==== SIMPLIFIED DELIVERY PERSON DETAILS START HERE ==== -->
-
-            <!-- Delivery Person Name -->
-            <TextView
-                android:id="@+id/delivery_person_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:text="Ravi Kumar"
-                android:textAppearance="?attr/textAppearanceTitleMedium"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/call_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider" />
-
-            <!-- Delivery Person Phone Number -->
-            <TextView
-                android:id="@+id/delivery_person_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
-                android:text="+91 98765 43210"
-                android:textAppearance="?attr/textAppearanceBodyMedium"
-                app:drawableStartCompat="@drawable/call"
-                app:drawableTint="?attr/colorOnSurfaceVariant"
-                app:layout_constraintStart_toStartOf="@id/delivery_person_name"
-                app:layout_constraintTop_toBottomOf="@id/delivery_person_name" />
-
-            <!-- Delivery Person Bike Number -->
-            <TextView
-                android:id="@+id/delivery_person_vehicle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
-                android:text="Bike • UP32-AB-1234"
-                android:textAppearance="?attr/textAppearanceBodyMedium"
-                app:drawableStartCompat="@drawable/delivery"
-                app:drawableTint="?attr/colorOnSurfaceVariant"
-                app:layout_constraintStart_toStartOf="@id/delivery_person_name"
-                app:layout_constraintTop_toBottomOf="@id/delivery_person_phone" />
-
-            <!-- Call Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/call_button"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="Call"
-                app:icon="@drawable/call"
-                app:layout_constraintBottom_toBottomOf="@id/delivery_person_vehicle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/delivery_person_name"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"/>
-
-            <!-- ==== SIMPLIFIED DELIVERY PERSON DETAILS END HERE ==== -->
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="39dp"
+        android:icon="@drawable/home"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,10 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-// Import your fragments
-import com.example.fooddeliveryapp0284.fragment.CartFragment;
-import com.example.fooddeliveryapp0284.fragment.DeliveryFragment;
-
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.HashMap;
@@ -75,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,CartFragment.class);
+                Intent i = new Intent(MainActivity.this,Cart.class);
                 startActivity(i);
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,DeliveryFragment.class);
+                Intent i = new Intent(MainActivity.this,Delivery.class);
                 startActivity(i);
             }
         });

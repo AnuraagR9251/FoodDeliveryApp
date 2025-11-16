@@ -22,6 +22,10 @@
         </activity>
         <activity android:name=".Hotel1"
             android:exported="true"/>
+        <activity android:name=".Cart"
+            android:exported="true"/>
+        <activity android:name=".Delivery"
+            android:exported="true"/>
     </application>
 
 </manifest>

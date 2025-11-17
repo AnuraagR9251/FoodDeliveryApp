@@ -22,9 +22,19 @@
         </activity>
         <activity android:name=".Hotel1"
             android:exported="true"/>
+        <activity android:name=".Hotel2"
+            android:exported="true"/>
+        <activity android:name=".Hotel3"
+            android:exported="true"/>
+        <activity android:name=".Hotel4"
+            android:exported="true"/>
         <activity android:name=".Cart"
             android:exported="true"/>
         <activity android:name=".Delivery"
+            android:exported="true"/>
+        <activity android:name=".Payment"
+            android:exported="true"/>
+        <activity android:name=".Accept"
             android:exported="true"/>
     </application>
 

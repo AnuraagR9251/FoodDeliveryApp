@@ -26,7 +26,7 @@ public class Cart extends AppCompatActivity {
         Intent i = getIntent();
         int total = i.getIntExtra("total", 0);
         String finalorder = i.getStringExtra("final");
-        totalbill.setText(String.valueOf(total));
+        totalbill.setText("₹"+String.valueOf(total));
         order.setText(finalorder);
         b.setOnClickListener(new View.OnClickListener() {
             @Override

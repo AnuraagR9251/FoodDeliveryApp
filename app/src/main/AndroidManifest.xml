@@ -32,10 +32,6 @@
             android:exported="true"/>
         <activity android:name=".Delivery"
             android:exported="true"/>
-        <activity android:name=".Payment"
-            android:exported="true"/>
-        <activity android:name=".Accept"
-            android:exported="true"/>
     </application>
 
 </manifest>
